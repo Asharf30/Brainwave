@@ -1,54 +1,49 @@
-import { background } from "../assets";
+import Section from "./Section";
+import Button from "./Button";
+import { curve, robot } from "../assets";
+import { BackgroundCircles, BottomLine } from "./design/Hero";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-export const Rings = () => {
-  return (
-    <div className="absolute top-1/2 left-1/2 w-[51.375rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2">
-      <div className="absolute top-1/2 left-1/2 w-[36.125rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute top-1/2 left-1/2 w-[23.125rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-    </div>
-  );
-};
+const Hero = () => {
+  const parallaxRef = useRef(null);
+  
+  useGSAP(() => {
+    gsap.fromTo(".hero-anim", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, stagger: 0.2 });
+  });
 
-export const SideLines = () => {
   return (
-    <>
-      <div className="absolute top-0 left-5 w-0.25 h-full bg-n-6"></div>
-      <div className="absolute top-0 right-5 w-0.25 h-full bg-n-6"></div>
-    </>
-  );
-};
-
-export const BackgroundCircles = () => {
-  return (
-    <>
-      <div className="absolute top-[4.4rem] left-16 w-3 h-3 bg-gradient-to-b from-[#DD734F] to-[#1A1A32] rounded-full"></div>
-      <div className="absolute top-[12.6rem] right-16 w-3 h-3 bg-gradient-to-b from-[#B9AEDF] to-[#1A1A32] rounded-full"></div>
-      <div className="absolute top-[26.8rem] left-12 w-6 h-6 bg-gradient-to-b from-[#88E5BE] to-[#1A1A32] rounded-full"></div>
-    </>
-  );
-};
-
-export const HamburgerMenu = () => {
-  return (
-    <div className="absolute inset-0 pointer-events-none lg:hidden">
-      <div className="absolute inset-0 opacity-[.03]">
-        <img
-          className="w-full h-full object-cover"
-          src={background}
-          width={688}
-          height={953}
-          alt="Background"
-        />
+    <Section className="pt-[12rem] -mt-[5.25rem]" crosses crossesOffset="lg:translate-y-[5.25rem]" customPaddings id="hero">
+      <div className="container relative" ref={parallaxRef}>
+        <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
+          <h1 className="h1 mb-6 hero-anim">
+            Explore the Possibilities of AI Chatting with {` `}
+            <span className="inline-block relative">
+              Brainwave <img src={curve} className="absolute top-full left-0 w-full xl:-mt-2" width={624} height={28} alt="Curve" />
+            </span>
+          </h1>
+          <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8 hero-anim">
+            Unleash the power of AI within Brainwave. Upgrade your productivity with Brainwave, the open AI chat app.
+          </p>
+          <div className="hero-anim">
+            <Button href="/pricing" white>Get started</Button>
+          </div>
+        </div>
+        <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24 hero-anim">
+          <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
+            <div className="relative bg-n-8 rounded-[1rem]">
+              <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
+              <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
+                <img src={robot} className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]" width={1024} height={490} alt="AI" />
+              </div>
+            </div>
+          </div>
+          <BackgroundCircles parallaxRef={parallaxRef} />
+        </div>
       </div>
-
-      <Rings />
-
-      <SideLines />
-
-      <BackgroundCircles />
-    </div>
+      <BottomLine />
+    </Section>
   );
 };
-
-const Hero = () => <div>Hero</div>;
 export default Hero;
