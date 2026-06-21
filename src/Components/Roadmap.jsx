@@ -1,4 +1,4 @@
-import { lines } from "../../assets";
+import { lines } from "../assets";
 
 export const LeftLine = () => {
   return (
@@ -27,3 +27,6 @@ export const RightLine = () => {
     </div>
   );
 };
+
+const Roadmap = () => <div>Roadmap</div>;
+export default Roadmap;

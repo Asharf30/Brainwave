@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MouseParallax } from "react-just-parallax";
 
-import PlusSvg from "../../assets/svg/PlusSvg";
+import PlusSvg from "../assets/svg/PlusSvg";
 
 export const Gradient = () => {
   return (
@@ -102,3 +102,6 @@ export const BackgroundCircles = ({ parallaxRef }) => {
     </div>
   );
 };
+
+const Pricing = () => <div>Pricing</div>;
+export default Pricing;

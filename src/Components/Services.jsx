@@ -1,4 +1,4 @@
-import { gradient } from "../../assets";
+import { gradient } from "../assets";
 
 export const Gradient = () => {
   return (
@@ -15,3 +15,6 @@ export const Gradient = () => {
     </div>
   );
 };
+
+const Services = () => <div>Services</div>;
+export default Services;

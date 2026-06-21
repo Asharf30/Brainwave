@@ -49,3 +49,6 @@ export const HamburgerMenu = () => {
     </div>
   );
 };
+
+const Hero = () => <div>Hero</div>;
+export default Hero;
