@@ -31,5 +31,5 @@ Done.
 
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
-shell commands, and other important information, read the current plan
+shell commands, and other important information, read the current plan: [plan.md](file:///D:/Projects%20Copmelet%20in%20React/Brainwave/specs/001-complete-landing-page/plan.md)
 <!-- SPECKIT END -->

@@ -6,7 +6,7 @@ const Section = ({
   crosses,
   crossesOffset,
   customPaddings,
-  childern,
+  children,
 }) => {
   return (
     <div
@@ -15,7 +15,7 @@ const Section = ({
        ${customPaddings || "py-10 lg:py-16 xl:py-20"}
      ${crosses ? "lg:py-32 xl:py-40" : ""}  ${className || ""}`}
     >
-      {childern}
+      {children}
       <div
         className="hidden absolute top-0 left-5 width-25 h-full bg-stroke-1
       pointer-events-none md:block lg:left-7.5 xl:left-10 
