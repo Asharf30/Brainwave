@@ -11,6 +11,11 @@
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 @layer base {
   body {
     @apply font-sans bg-n-8 text-n-1 text-base;

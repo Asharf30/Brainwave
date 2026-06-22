@@ -2,10 +2,13 @@ import Section from "./Section";
 import { roadmap } from "../constants.jsx";
 import { check2, grid, loading1 } from "../assets";
 import { Gradient } from "./design/Roadmap";
+import { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const Roadmap = () => {
+  const [selected, setSelected] = useState(0);
+
   useGSAP(() => {
     gsap.fromTo(".roadmap-anim", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, stagger: 0.2, scrollTrigger: { trigger: "#roadmap", start: "top 80%" }});
   });
@@ -17,10 +20,14 @@ const Roadmap = () => {
           <h2 className="h2">What we're working on</h2>
         </div>
         <div className="relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-[7rem] roadmap-anim">
-          {roadmap.map((item) => {
+          {roadmap.map((item, index) => {
             const status = item.status === "done" ? "Done" : "In progress";
+            const isSelected = index === selected;
             return (
-              <div key={item.id} className={`md:flex even:md:translate-y-[7rem] p-0.25 rounded-[2.5rem] ${item.colorful ? "bg-conic-gradient" : "bg-n-6"}`}>
+              <div 
+                key={item.id} 
+                onClick={() => setSelected(index)}
+                className={`md:flex even:md:translate-y-[7rem] p-0.25 rounded-[2.5rem] cursor-pointer transition-all duration-500 ${isSelected ? "bg-conic-gradient scale-[1.02] shadow-2xl shadow-color-1/30 z-10" : "bg-n-6 scale-100 opacity-80 hover:opacity-100 hover:scale-[1.01]"}`}>
                 <div className="relative p-8 bg-n-8 rounded-[2.4375rem] overflow-hidden xl:p-15">
                   <div className="absolute top-0 left-0 max-w-full">
                     <img src={grid} className="w-full" width={550} height={550} alt="Grid" />

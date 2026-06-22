@@ -59,12 +59,17 @@ export const navigation = [
   },
   {
     id: "4",
+    title: "Testimonials",
+    url: "#testimonials",
+  },
+  {
+    id: "6",
     title: "New account",
     url: "#signup",
     onlyMobile: true,
   },
   {
-    id: "5",
+    id: "7",
     title: "Sign in",
     url: "#login",
     onlyMobile: true,
@@ -324,5 +329,29 @@ export const socials = [
     title: "Facebook",
     iconUrl: facebook,
     url: "#",
+  },
+];
+
+export const testimonials = [
+  {
+    id: "0",
+    name: "Sarah Miller",
+    role: "Product Manager",
+    text: "Brainwave has completely revolutionized how our team collaborates. The AI-driven insights have saved us countless hours.",
+    rating: 5,
+  },
+  {
+    id: "1",
+    name: "James Wilson",
+    role: "Software Engineer",
+    text: "The API integration is seamless and the generative features are top-notch. It's an indispensable tool for my daily workflow.",
+    rating: 5,
+  },
+  {
+    id: "2",
+    name: "Emily Chen",
+    role: "UX Designer",
+    text: "The interface is beautiful and intuitive. Generating placeholder assets with Brainwave is incredibly fast and accurate.",
+    rating: 4,
   },
 ];
