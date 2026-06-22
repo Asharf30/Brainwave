@@ -99,29 +99,29 @@ const Header = () => {
     <>
       {/* Header bar */}
       <div
-        className={`fixed top-0  left-0 w-full z-50 overflow-x-hidden bg-n-8/90 backdrop-blur-sm border-b border-n-6 ${
+        className={`fixed top-0 left-0 w-full z-50 overflow-x-hidden bg-n-8/90 backdrop-blur-md border-b border-n-6 transition-all ${
           openNav ? "!bg-n-8" : ""
         }`}
       >
-        <div className="flex items-center min-w-0 px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-          <a href="#hero" className="block shrink-0 w-[12rem] xl:mr-8">
-            <img src={brainwave} width={190} height={40} alt="Brainwave" />
+        <div className="flex items-center justify-between min-w-0 px-5 lg:px-8 xl:px-10 h-16 lg:h-20">
+          <a href="#hero" className="flex items-center shrink-0 w-[10rem] xl:w-[11.5rem] mr-auto lg:mr-0">
+            <img src={brainwave} width={190} height={40} alt="Brainwave" className="w-full h-auto object-contain" />
           </a>
 
           {/* Desktop nav — inline, visible only on lg+ */}
-          <nav className="hidden lg:flex lg:mx-auto">
-            <div className="flex items-center">
+          <nav className="hidden lg:flex flex-1 justify-center">
+            <div className="flex items-center gap-1 xl:gap-4">
               {navigation.map((item) => (
                 <a
                   key={item.id}
                   href={item.url}
                   onClick={handleClick}
                   className={clsx(
-                    "block font-code text-xs font-semibold uppercase leading-5 transition-colors duration-300 hover:text-color-1 xl:px-12 px-6",
+                    "block font-code text-xs font-semibold uppercase tracking-wider leading-5 transition-all duration-300 hover:text-color-1 px-4 xl:px-6 py-2 rounded-lg hover:bg-n-12/50",
                     item.onlyMobile && "hidden",
                     item.url === activeHash
-                      ? "text-n-1 drop-shadow-md"
-                      : "text-n-1/50"
+                      ? "text-n-1 drop-shadow-md bg-n-12/30"
+                      : "text-n-1/60"
                   )}
                 >
                   {item.title}
@@ -130,15 +130,18 @@ const Header = () => {
             </div>
           </nav>
 
-          <a
-            href="#signup"
-            className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block shrink-0"
-          >
-            New Account
-          </a>
-          <Button className="hidden lg:flex shrink-0" href="#login">
-            Sign In
-          </Button>
+          <div className="hidden lg:flex items-center justify-end shrink-0 ml-auto w-[12rem] xl:w-[14rem]">
+            <a
+              href="#signup"
+              className="button mr-6 text-n-1/60 transition-colors hover:text-n-1 shrink-0"
+            >
+              New Account
+            </a>
+            <Button className="shrink-0 scale-95 origin-right" href="#login">
+              Sign In
+            </Button>
+          </div>
+          
           <Button className="ml-auto lg:hidden shrink-0" px="px-3" onClick={toggleNav}>
             <MenuSvg openNavigation={openNav} />
           </Button>
@@ -148,7 +151,7 @@ const Header = () => {
       {/* Mobile nav overlay — OUTSIDE the header div, renders above everything */}
       <nav
         ref={navRef}
-        className="fixed top-[5rem] left-0 right-0 bottom-0 z-[9999] bg-n-8 overflow-y-auto overflow-x-hidden hidden lg:hidden flex-col"
+        className="fixed top-16 left-0 right-0 bottom-0 z-[9999] bg-n-8 overflow-y-auto overflow-x-hidden hidden lg:hidden flex-col"
       >
         <div className="relative flex flex-col items-center justify-center m-auto h-full w-full">
           {navigation.map((item) => (
